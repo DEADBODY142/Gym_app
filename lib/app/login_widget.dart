@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/homepage.dart';
 import 'package:flutter_application_1/app/signin.dart';
 import 'package:flutter_application_1/app/signup.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -83,7 +84,8 @@ class _LoginWidgetState extends State<LoginWidget> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context)=>SignIn())
+                  // MaterialPageRoute(builder: (context)=>SignIn())
+                  MaterialPageRoute(builder: (context)=>Homepage())
                 );
                 print('Button 1 Pressed');
               },

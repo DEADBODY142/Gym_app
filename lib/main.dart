@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/app/login_widget.dart';
+import 'package:flutter_application_1/providers/image_selection_provider.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ImageSelectionProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
