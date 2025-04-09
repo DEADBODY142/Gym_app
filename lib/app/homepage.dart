@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/app/home_container.dart';
+import 'package:flutter_application_1/commons/bottomnav.dart';
+// import 'package:flutter_application_1/app/signin.dart';
 import 'package:flutter_application_1/providers/image_selection_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +14,13 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   bool isSelected = false; //* state variable should be here
+  int _currentIndex = 0;
+  void _onItemTapped(int index)
+  {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,56 +134,102 @@ class _HomepageState extends State<Homepage> {
 
             if (isSelected)
               Positioned(
-                top: 100,
-                width: 200,
-                height: totalHeight, // Dynamic height for the Positioned widget
+                top: 60,
+                width: 150,
                 right: 10,
-                child: SingleChildScrollView(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    color: Colors.grey,
-                    // width: double.infinity,
-                    // height: double.infinity,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children:
-                          selectedCount == 0
-                              ? [
-                                Text(
-                                  'No Image Selected!',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ]
-                              //?
-                              : provider.selectedIndexes.map((index) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 5,
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      provider.toggleSelection(
-                                        index,
-                                      ); // Toggle selection on tap
-                                    },
-                                    child: SizedBox(
-                                      height: imgHeight,
-                                      child: Image.asset(
-                                        imagePath[index],
-                                        height: imgHeight,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }).toList(),
-                    ),
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white,
+                    border: Border.all(),
+                  ),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return ConstrainedBox(
+                        constraints: BoxConstraints(maxHeight: 280),
+
+                        child: SingleChildScrollView(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children:
+                                  selectedCount == 0
+                                      ? [
+                                        Text(
+                                          'No Image Selected!',
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                      ]
+                                      //?
+                                      : provider.selectedIndexes.map((index) {
+                                        return Padding(
+                                          padding: const EdgeInsets.only(
+                                            bottom: 10,
+                                          ),
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              provider.toggleSelection(index);
+                                            },
+                                            child: Stack(
+                                              children: [
+                                                SizedBox(
+                                                  height: imgHeight,
+                                                  child: Image.asset(
+                                                    imagePath[index],
+                                                    height: imgHeight,
+                                                    fit: BoxFit.cover,
+                                                  ),
+                                                ),
+                                                Positioned(
+                                                  top: 4,
+                                                  right: 4,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                            2,
+                                                          ),
+                                                    ),
+                                                    width: 15,
+                                                    child: Center(
+                                                      child: Text(
+                                                        (provider.selectedIndexes
+                                                                    .toList()
+                                                                    .indexOf(
+                                                                      index,
+                                                                    ) +
+                                                                1)
+                                                            .toString(),
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      }).toList(),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
           ],
         ),
       ),
+
+      //? Bottom Navigation Bar
+      bottomNavigationBar: BottomNav(currentindex:_currentIndex,onItemTapped:_onItemTapped)
     );
+        
   }
 }

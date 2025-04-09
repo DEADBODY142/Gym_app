@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/homepage.dart';
 import 'package:flutter_application_1/app/shared_preference.dart';
 import 'package:flutter_application_1/app/signin.dart';
 import 'package:flutter_application_1/commons/custombutton.dart';
 import 'package:flutter_application_1/validators/form_validators.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class FormSignup extends StatefulWidget {
   const FormSignup({super.key});

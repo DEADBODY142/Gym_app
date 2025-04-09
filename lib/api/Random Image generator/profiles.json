@@ -1,0 +1,82 @@
+[
+  {
+    "name": "John Doe",
+    "imagePath": "/images/1.jpg",
+    "age": 30,
+    "weight": 70,
+    "gender": "Male",
+    "bloodGroup": "O+"
+  },
+  {
+    "name": "Jane Smith",
+    "imagePath": "/images/2.jpg",
+    "age": 28,
+    "weight": 60,
+    "gender": "Female",
+    "bloodGroup": "A-"
+  },
+  {
+    "name": "Alice Johnson",
+    "imagePath": "/images/3.jpg",
+    "age": 35,
+    "weight": 65,
+    "gender": "Female",
+    "bloodGroup": "B+"
+  },
+  {
+    "name": "Bob Brown",
+    "imagePath": "/images/4.jpg",
+    "age": 40,
+    "weight": 85,
+    "gender": "Male",
+    "bloodGroup": "AB+"
+  },
+  {
+    "name": "Charlie Davis",
+    "imagePath": "/images/5.jpg",
+    "age": 22,
+    "weight": 75,
+    "gender": "Male",
+    "bloodGroup": "O-"
+  },
+  {
+    "name": "Diana Evans",
+    "imagePath": "/images/6.jpg",
+    "age": 27,
+    "weight": 55,
+    "gender": "Female",
+    "bloodGroup": "A+"
+  },
+  {
+    "name": "Ethan Foster",
+    "imagePath": "/images/7.jpg",
+    "age": 33,
+    "weight": 90,
+    "gender": "Male",
+    "bloodGroup": "B-"
+  },
+  {
+    "name": "Fiona Green",
+    "imagePath": "/images/8.jpg",
+    "age": 29,
+    "weight": 58,
+    "gender": "Female",
+    "bloodGroup": "AB-"
+  },
+  {
+    "name": "George Harris",
+    "imagePath": "/images/9.jpg",
+    "age": 31,
+    "weight": 80,
+    "gender": "Male",
+    "bloodGroup": "O+"
+  },
+  {
+    "name": "Hannah White",
+    "imagePath": "/images/10.jpg",
+    "age": 26,
+    "weight": 62,
+    "gender": "Female",
+    "bloodGroup": "A-"
+  }
+]

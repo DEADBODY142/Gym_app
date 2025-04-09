@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/app/homepage.dart';
 import 'package:flutter_application_1/app/login_widget.dart';
+import 'package:flutter_application_1/app/second_home_page.dart';
+import 'package:flutter_application_1/app/signin.dart';
+import 'package:flutter_application_1/app/signup.dart';
+import 'package:flutter_application_1/app/third_page.dart';
 import 'package:flutter_application_1/providers/image_selection_provider.dart';
+// import 'package:flutter_application_1/service/notif_service.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+
+  // NotifService().initNotification();
+  
   runApp(
     MultiProvider(
       providers: [
@@ -22,6 +32,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // To remove debug banner
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/login': (context) => LoginWidget(),
+        '/signup': (context) => Signup(),
+        '/signin': (context) => SignIn(),
+        '/homepage': (context) => Homepage(),
+        '/second':(context) => SecondHomePage(),
+        '/profile':(context) => ThirdPage(),
+      },
       home: Scaffold(
         // AppBar with gradient background
         appBar: PreferredSize(
@@ -35,24 +53,21 @@ class MyApp extends StatelessWidget {
               ),
             ),
             child: AppBar(
-              backgroundColor: Colors.transparent, // Make AppBar background transparent to show the gradient
+              backgroundColor:
+                  Colors
+                      .transparent, // Make AppBar background transparent to show the gradient
               elevation: 0, // Remove shadow for the AppBar
               actions: [
                 // Popup menu
                 PopupMenuButton<String>(
                   itemBuilder: (BuildContext context) {
                     return [
-                      PopupMenuItem(
-                        value: 'Profile',
-                        child: Text('Profile'),
-                      ),
-                      PopupMenuItem(
-                        value: 'Settings',
-                        child: Text('Settings'),
-                      ),
+                      PopupMenuItem(value: 'Profile', child: Text('Profile')),
+                      PopupMenuItem(value: 'Settings', child: Text('Settings')),
                       PopupMenuItem(
                         value: 'Logout',
                         child: Text('Logout'),
+                        // onTap: () => Navigator.pushNamed(context, '/login'),
                       ),
                     ];
                   },
